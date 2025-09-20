@@ -1,7 +1,24 @@
 import React from "react"
+import NavBar from './NavBar.jsx'
+import { Link } from 'react-router-dom'
+import { LockKeyhole } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { Eye } from 'lucide-react';
+import { EyeOff } from 'lucide-react';
+import { useState } from 'react'
 const SignIn = () => {
+    const [showPassword, setshowPassword] = useState(false);
+    const [fromData,setformData]=useState({
+            
+            email:"",
+            password:""
+                    })
+    const handlePassword = () => {
+        setshowPassword((password) => !password)
+    }
     return (
-        <div className=" flex flex-col  justify-center items-center mt-25 gap-6 ">
+        <div className=" flex flex-col  justify-center items-center gap-6 ">
+            <NavBar />
             <div className="flex flex-col  border-1 border-white rounded-xl  bg-sky-50 w-[25%] justify-center px-1 py-10 gap-5  mt-3 h-[700px] items-center">
 
                 <h1 className="font-bold text-2xl">SignIn</h1>
@@ -10,18 +27,27 @@ const SignIn = () => {
 
                     <div className="w-full flex flex-col gap-5">
                         <p className="font-semibold text-gray-700">Email Address</p>
-                        <input type="Email" placeholder="sample@gmail.com"
-                            className="border-1 border-black w-full py-4 px-3 rounded-xl"></input>
+                        <div className="relative">
+                            <input  name="email" type="Email" placeholder="sample@gmail.com"
+                                className="border-1 border-black w-full py-4 px-3 rounded-xl pl-10" />
+                            <Mail className="absolute top-4 left-3 text-gray-800" />
+                        </div>
 
                     </div>
                     <div className="w-full flex flex-col gap-5">
                         <p className="font-semibold text-gray-700 ">Password</p>
-                        <input type="Password" placeholder="sample123"
-                            className="border-1 border-black w-full py-4 px-1 rounded-xl"></input>
+                        <div className="relative">
+                            <input  name="password" type={showPassword ?"password":"text"} placeholder="sample123"
+                                className="border-1 border-black w-full py-4 px-1 rounded-xl pl-10" />
+                            <LockKeyhole className="absolute top-4 left-3 text-gray-800" />
+                            <p onClick={handlePassword}>{showPassword ? <Eye className="absolute bottom-4  right-3 text-gray-500" /> : <EyeOff className="absolute bottom-4  right-3 text-gray-500" />}</p>
+
+
+                        </div>
                     </div>
                     <div className="flex justify-around w-full">
                         <div className="w-full flex ">
-                            <input type="checkbox" className="h-4 w-4"></input>
+                            <input type="checkbox" className="h-4 w-4" />
                             <p>Remember me</p>
 
                         </div>
@@ -38,7 +64,7 @@ const SignIn = () => {
                     </div>
                     <div className="flex items-center">
                         <p className="text-gray-700 flex items-center">Don't have an account?</p>
-                        <button className="font-semibold text-blue-500 hover:text-blue-800 cursor-pointer " >Create one here</button>
+                        <Link to="/signup" className="font-semibold text-blue-500 hover:text-blue-800 cursor-pointer " >Create one here</Link>
                     </div>
                 </form>
 
