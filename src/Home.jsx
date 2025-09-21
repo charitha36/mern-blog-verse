@@ -57,42 +57,44 @@ function Home() {
     }]
     return (
         <div className="bg-sky-50">
-            <NavBar/>
-            <h1 className="font-bold text-4xl flex justify-center mt-5">Welcome to BlogVerse</h1>
-            <p className="text-gray-700 flex justify-center mt-5 text-xl">Discover amazing stories, insights, and ideas from our community of <br />writers.Sign In to create your own posts and save your favorites.</p>
-            <div className="flex-wrap gap-10 ml-40 mr-40 flex items-center justify-center ">
-                {
-                    posts.map((post) => (
-                        <div className="w-96 bg-white shadow-lg rounded-lg " key={post.id}>
-                            <div className="relative">
-                                <img className=" rounded-t-lg  shadow-lg h-52 w-96 " src={post.Image} alt="Writing"></img>
-                                <button className="p-3 text-sm bg-white rounded-full absolute cursor-pointer right-4 top-3" >Save</button>
-                                
-                                <button className="p-3 text-sm text-white bg-blue-700 rounded-2xl py-1 absolute cursor-pointer left-4 top-3" >Technology</button>
-                                
-                                <div className="flex gap-5 mt-3 px-2">
-                                     <img className="rounded-full shadow-lg h-12 w-12 " src={post.profilePic} alt="Writing" />
+            <NavBar />
+            <div>
+                <h1 className="font-bold text-4xl flex justify-center mt-5">Welcome to BlogVerse</h1>
+                <p className="text-gray-700 flex justify-center mt-5 text-xl">Discover amazing stories, insights, and ideas from our community of <br />writers.Sign In to create your own posts and save your favorites.</p>
+                <div className="flex-wrap gap-10 ml-4 mr-4 md:ml-40 md:mr-40 flex items-center justify-center ">
+                    {
+                        posts.map((post) => (
+                            <div className="w-96 bg-white shadow-lg rounded-lg " key={post.id}>
+                                <div className="relative">
+                                    <img className=" rounded-t-lg  shadow-lg h-52 w-96 " src={post.Image} alt="Writing"></img>
+                                    <button className="p-3 text-sm bg-white rounded-full absolute cursor-pointer right-4 top-3" >Save</button>
+
+                                    <button className="p-3 text-sm text-white bg-blue-700 rounded-2xl py-1 absolute cursor-pointer left-4 top-3" >Technology</button>
+
+                                    <div className="flex gap-5 mt-3 px-2">
+                                        <img className="rounded-full shadow-lg h-12 w-12 " src={post.profilePic} alt="Writing" />
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold flex ml-5">{post.author}</p>
+                                        <p className="text-gray-500 ml-5">{post.postedOn} - {post.timeRead}</p>
+                                    </div>
+
                                 </div>
-                                  <div>
-                                    <p className="font-semibold flex ml-5">{post.author}</p>
-                                    <p className="text-gray-500 ml-5">{post.postedOn} - {post.timeRead}</p>
+                                <div>
+                                    <p className="font-semibold hover:text-blue-600 cursor-pointer text-xl ml-5">{post.title}</p>
+                                </div>
+                                <div className="mt-4">
+                                    <p className="text-gray-700 ml-5">{post.content}</p>
+                                </div>
+                                <div className="border-[0.5px] border-gray-300 w-[90%]  mt-4 ml-5"></div>
+                                <div className="md:mt-15 ml-5">{post.timeRead}
+                                    <button className="text-blue-500 hover:text-blue-800 cursor-pointer flex justify-end w-full mb-10">Read more</button>
                                 </div>
 
                             </div>
-                            <div>
-                                <p className="font-semibold hover:text-blue-600 cursor-pointer text-xl ml-5">{post.title}</p>
-                            </div>
-                            <div className="mt-4">
-                            <p className="text-gray-700 ml-5">{post.content}</p>
-                            </div>
-                            <div className="border-[0.5px] border-gray-300 w-[90%] mt-4 ml-5"></div>
-                            <div className="mt-15 ml-5">{post.timeRead}
-                            <button className="text-blue-500 hover:text-blue-800 cursor-pointer flex justify-end w-full mb-10">Read more</button>
-                        </div>
-                            
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
         </div>
     )
