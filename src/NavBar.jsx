@@ -10,7 +10,7 @@ const NavBar=()=>{
             </div>
             <div className="flex gap-5">
                 <Link to="/signin" className="font-semibold text-gray-700">Sign In</Link>
-                <Link to="/signup" className="bg-blue-600 text-white px-5 py-2 rounded-lg cursor-pointer">Sign Up</Link>
+                <Link to="/signup" className="bg-blue-600 text-white  sm:px-3 sm:py-1 md:px-5 md:py-2 rounded-lg cursor-pointer">Sign Up</Link>
             </div>
         </div>
     )

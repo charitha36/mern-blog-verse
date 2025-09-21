@@ -56,11 +56,11 @@ function Home() {
         profilePic: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     }]
     return (
-        <div>
+        <div className="bg-sky-50">
             <NavBar/>
             <h1 className="font-bold text-4xl flex justify-center mt-5">Welcome to BlogVerse</h1>
             <p className="text-gray-700 flex justify-center mt-5 text-xl">Discover amazing stories, insights, and ideas from our community of <br />writers.Sign In to create your own posts and save your favorites.</p>
-            <div className="flex-wrap gap-10 ml-40 mr-40 flex items-center justify-center">
+            <div className="flex-wrap gap-10 ml-40 mr-40 flex items-center justify-center ">
                 {
                     posts.map((post) => (
                         <div className="w-96 bg-white shadow-lg rounded-lg " key={post.id}>
